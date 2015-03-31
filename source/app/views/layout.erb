@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/application.css">
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/js/application.js"></script>
+    <title>Thwack!</title>
+
+  <div class="header">
+    <div class="transbox">
+      <h1>Thwack!</h1>
+      <h2>an archer's scoring app</h2>
+    </div>
+  </div>
+
+  </head>
+<body>
+  <div class="auth_container">
+  <nav>
+    <div class="brand"><a href="/">Home</a>
+    </div>
+    <ul>
+      <% if current_user %>
+        <li>
+          <form id="sign-out" action="/sessions/<%= current_user.id %>" method="post">
+            <input name="_method" type="hidden" value="delete" />
+            <input type="submit" value="Sign Out">
+          </form>
+        </li>
+      <% else %>
+        <li><a href="/sessions/new">Login</a></li>
+        <li><a href="/users/new">Sign Up</a></li>
+      <% end %>
+    </ul>
+  </nav>
+</div>
+
+  <%= yield %>
+</body>
+</html>

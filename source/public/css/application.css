@@ -1,0 +1,50 @@
+* {
+  background-color: #66BB6A;
+}
+
+.header {
+  /*background: url('../images/targets_header.jpg');*/
+  background-color: #66BB6A;
+  /*background-position: center;*/
+  position: fixed;
+  width: 100%;
+  height: 150px;
+  margin-top: 0px;
+  border-bottom: 5px solid #1B5E20;
+}
+
+
+
+.transbox {
+  /*margin: 12px;
+  background-color: #ffffff;
+  border: 1px solid black;
+  /*opacity: 0.6;*/
+  text-align: right;
+}
+
+.transbox h1 {
+  font-weight: bold;
+  background-color: transparent;
+  font-style: italic;
+  font-size: 5em;
+  margin: 0;
+}
+
+.transbox h2 {
+  font-weight: bold;
+  background-color: transparent;
+  font-size: 20px;
+}
+
+.body_container {
+  margin-top: 155px;
+  position: fixed;
+}
+
+.auth_container {
+  position: fixed;
+  top: 155px;
+  right: 5px;
+  color: red;
+}

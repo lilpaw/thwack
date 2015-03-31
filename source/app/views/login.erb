@@ -1,0 +1,23 @@
+<!-- <form action='/login' method='post'>
+  <input type="text" name="email" placeholder="robin@archery.com"/>
+  <input type="password" name="password" placeholder="password"/>
+  <input type="submit" value="signin"/>
+</form> -->
+
+<div class="body_container">
+  <h1>Login</h1>
+
+  <% if @error %>
+    <div class="errors"><%= @error %></div>
+  <% end %>
+
+  <form id="sign-in" method="post" action="/sessions">
+    <label class="label" for="email">Email</label>
+    <input type="email" name="email" placeholder="e.g., janethearcher@arrows.com" value="<%= @email %>"><br>
+    <label class="label" for="password">Password</label>
+    <input type="password" name="password" placeholder="6 or more characters">
+    <br>
+    <div class="submit"><input type="submit" value="Login"></div>
+  </form>
+
+</div>

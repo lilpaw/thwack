@@ -1,0 +1,56 @@
+<div class="body_container">
+
+  <% if !current_user %>
+  <h2> Please sign in!</h2>
+<!--     <a href="/sessions/new">Login</a> -->
+  <% else %>
+    <h2> Welcome, <%= current_user.name %>  </h2>
+<!--     <a href="/logout">Logout</a> -->
+    <br>
+    <br>
+    <br>
+    <a href="/" class='new_round_link'>Start a New Round</a>
+
+<!--shouldn't appear until after Start a New Round is clicked-->
+<div class=range_form>
+  <form action='/new_round' method= 'POST'>
+    <label>Range:</label>
+    <input type="text" name="location" placeholder="range name here"/><br>
+    <label>Number of Ends:</label>
+    <input type="integer" name="num_of_ends" placeholder="10"/><br>
+    <label>Arrows per End:</label>
+    <input type="integer" name="arrows_per_end" placeholder="3"/><br>
+    <input type="submit" class='submit_range_form' value="Create Round"/>
+  </form>
+</div>
+
+<div class="scorecard">
+  <p> SCORECARD GOES HERE </p>
+
+</div>
+
+
+
+
+
+    <% if current_user.rounds.size > 0 %>
+    <h3> Your past rounds: </h3>
+    <table>
+      <th> Date </th>
+      <th> Location </th>
+      <th> Total Score </th>
+      <!-- <th> Photos </th> ADD ONCE LINKED WITH INSTAGRAM API-->
+
+      <% current_user.rounds.reverse.each do |round| %>
+      <tr>
+        <td><%= round.created_at.strftime("%m/%d/%Y")%></td>
+        <td><%= round.location %></td>
+        <td><%= round.total %></td>
+      </tr>
+      <% end %>
+    </table>
+    <% end %>
+<% end %>
+</div>
+
+
