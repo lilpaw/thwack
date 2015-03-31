@@ -22,19 +22,17 @@
   <nav>
     <div class="brand"><a href="/">Home</a>
     </div>
-    <ul>
       <% if current_user %>
-        <li>
+        <p>
           <form id="sign-out" action="/sessions/<%= current_user.id %>" method="post">
             <input name="_method" type="hidden" value="delete" />
             <input type="submit" value="Sign Out">
           </form>
-        </li>
+        </p>
       <% else %>
-        <li><a href="/sessions/new">Login</a></li>
-        <li><a href="/users/new">Sign Up</a></li>
+        <p><a href="/sessions/new">Login</a></p>
+        <p><a href="/users/new">Sign Up</a></p>
       <% end %>
-    </ul>
   </nav>
 </div>
 
