@@ -12,7 +12,7 @@
     <a href="/" class='new_round_link'>Start a New Round</a>
 
 <!--shouldn't appear until after Start a New Round is clicked-->
-<div class=range_form>
+<div class="range_form">
   <form action='/new_round' method= 'POST'>
     <label>Range:</label>
     <input type="text" name="location" placeholder="range name here"/><br>
@@ -26,15 +26,14 @@
 
 <div class="scorecard">
   <table>
-  <% @num_of_ends.times do |round_end| %>
-    <th>End #<%=round_end%>:</th>
-
-    <tr>
-    <% @arrows_per_end.times do |end_arrow| %>
-      <td><form> <%= end_arrow %>: <input type="integer" name="score"> </form></td>
-    <% end %>
+    <% current_round.ends.each do |round_end| %>
+    <tr><td><%= round_end.id %></td>
+      <% round_end.arrows.each do |arrow| %>
+      <td><%= arrow.id %></td>
+      <% end %>
     </tr>
-  <% end %>
+    <% end %>
+
   </table>
 
 </div>

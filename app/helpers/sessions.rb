@@ -9,11 +9,9 @@ helpers do
 
   end
 
-  # def current_round
-  #   if session[:user_id]
-  #     Round.find(user_id: current_round.id)
-  #   end
-  # end
+  def current_round
+    Round.where(user_id: session[:user_id]).last
+  end
 
 
 end

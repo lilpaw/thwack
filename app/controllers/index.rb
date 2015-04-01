@@ -1,3 +1,7 @@
+# METHOD '<PATH>' do
+#   <block>
+# end
+
 get '/' do
   @users = User.all
   @rounds = Round.all
@@ -46,12 +50,19 @@ get '/new_round' do
 end
 
 post '/new_round' do
-  @round = Round.create(user_id: current_user.id, num_of_ends: params[:num_of_ends], arrows_per_end: params[:arrows_per_end], location: params[:location])
+  @round = Round.new(user_id: current_user.id, num_of_ends: params[:num_of_ends], arrows_per_end: params[:arrows_per_end], location: params[:location])
 
-    (@round.arrows_per_end * @round.num_of_ends).times do |arrow|
-      Arrow.create(round_id: @round.id, score: params[:score])
+    (@round.num_of_ends).times do |round_end|
+      @end = End.new()
+      @round.ends << @end
+
+      @round.arrows_per_end.times do |end_arrow|
+        @end.arrows << Arrow.new(score: 0)
+      end
     end
 
-  redirect '/'
+    @round.save
+
+
 end
 

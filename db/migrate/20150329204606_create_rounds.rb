@@ -4,7 +4,6 @@ class CreateRounds < ActiveRecord::Migration
       t.references :user
       t.integer :num_of_ends
       t.integer :arrows_per_end
-      t.integer :total
       t.string :location
 
       t.timestamps

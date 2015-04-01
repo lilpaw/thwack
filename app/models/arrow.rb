@@ -1,3 +1,3 @@
 class Arrow < ActiveRecord::Base
-  belongs_to :round
+  belongs_to :end
 end
