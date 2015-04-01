@@ -5,10 +5,11 @@ $(document).ready(function() {
 
   // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
 
-$(".range_form").hide()
+// $(".range_form").hide()
 $(".scorecard").hide()
 
 $(".new_round_link").click(function(event){
+  event.preventDefault();
     $(this).hide();
     $(".range_form").show();
   });
@@ -17,6 +18,8 @@ $(".new_round_link").click(function(event){
     event.preventDefault();
     $(".scorecard").show();
     $(".range_form").hide();
+    var @num_of_ends = $("num_of_ends").val();
+    var @arrows_per_end = $("arrows_per_end").val();
   });
 });
 

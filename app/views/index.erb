@@ -25,13 +25,19 @@
 </div>
 
 <div class="scorecard">
-  <p> SCORECARD GOES HERE </p>
+  <table>
+  <% @num_of_ends.times do |round_end| %>
+    <th>End #<%=round_end%>:</th>
+
+    <tr>
+    <% @arrows_per_end.times do |end_arrow| %>
+      <td><form> <%= end_arrow %>: <input type="integer" name="score"> </form></td>
+    <% end %>
+    </tr>
+  <% end %>
+  </table>
 
 </div>
-
-
-
-
 
     <% if current_user.rounds.size > 0 %>
     <h3> Your past rounds: </h3>
